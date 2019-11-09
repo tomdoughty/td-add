@@ -1,9 +1,6 @@
 name: Create Release
 
-on:
-  push:
-    tags:
-      - 'v*'
+on: push
 
 jobs:
   build:
@@ -20,8 +17,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1.0.5
-          release_name: v1.0.5
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
 
