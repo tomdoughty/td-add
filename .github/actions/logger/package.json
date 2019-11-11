@@ -4,11 +4,11 @@
 	"description": "Log event",
 	"main": "index.js",
 	"scripts": {
-	  "test": "\\ None"
+		"test": "\\ None"
 	},
 	"author": "Tom Doughty",
 	"license": "MIT",
 	"dependencies": {
-	  "@actions/core": "^1.0.0"
+		"@actions/core": "^1.0.0"
 	}
 }
