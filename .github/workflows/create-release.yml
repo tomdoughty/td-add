@@ -17,8 +17,7 @@ jobs:
         run: npm test
         env:
           MY_REF: ${{ github.ref }}
-          REPO: ${{ GITHUB_REPOSITORY }}
-          ID: ${{ RELEASE_ID }}
+          EVENT: ${{ GITHUB_EVENT_PATH }}
 
       - name: Upload Release Asset
         id: upload-release-asset 
