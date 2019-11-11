@@ -1,0 +1,14 @@
+{
+	"name": "logger",
+	"version": "1.0.0",
+	"description": "Log event",
+	"main": "index.js",
+	"scripts": {
+	  "test": "\\ None"
+	},
+	"author": "Tom Doughty",
+	"license": "MIT",
+	"dependencies": {
+	  "@actions/core": "^1.0.0"
+	}
+}
