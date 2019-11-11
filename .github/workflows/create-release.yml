@@ -15,8 +15,9 @@ jobs:
         uses: actions/checkout@v1
 
       - name: See git ref
-        echo: ${{ GITHUB_EVENT_PATH }}
-        run: npm test
+        uses: ./.github/actions/logger
+        with:
+          event: ${{ GITHUB_EVENT_PATH }}
 
       - name: Upload Release Asset
         id: upload-release-asset 
