@@ -17,7 +17,7 @@ jobs:
       - name: See git ref
         uses: ./.github/actions/logger
         with:
-          event: ${{ GITHUB_EVENT_PATH }}
+          event: ${{ env.GITHUB_EVENT_PATH }}
 
       - name: Upload Release Asset
         id: upload-release-asset 
