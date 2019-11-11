@@ -1,10 +1,8 @@
-const core = require('@actions/core');
+const eventPath = require('/home/runner/work/_temp/_github_workflow/event.json');
 
 async function run() {
 	console.log(JSON.stringify(process.env));
-	
-	const event = core.getInput('event', { required: true });
-	console.log(JSON.stringify(event));
+	console.log(JSON.stringify(eventPath));
 }
 
 module.exports = run;
