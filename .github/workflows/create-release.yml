@@ -9,9 +9,12 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
       - name: See git ref
-      - run: npm run lint
-      - env:
+        env:
           MY_REF: ${{ github.ref }}
 
       - name: Upload Release Asset
