@@ -9,7 +9,10 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
 
-      - name: ${{ github.ref }}
+      - name: See git ref
+      - run: npm run lint
+      - env:
+          MY_REF: ${{ github.ref }}
 
       - name: Upload Release Asset
         id: upload-release-asset 
