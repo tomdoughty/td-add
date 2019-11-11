@@ -13,9 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v1
 
-
       - name: Install deps
-        uses: npm install
+        run: npm install
 
       - name: See git ref
         uses: ./.github/actions/logger
