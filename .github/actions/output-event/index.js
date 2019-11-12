@@ -1,4 +1,4 @@
-const run = require('./logger');
+const run = require('./output-event');
 
 if (require.main === module) {
   run();
