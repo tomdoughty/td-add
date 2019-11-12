@@ -3,7 +3,7 @@ const { GitHub } = require('@actions/github');
 const { release: { upload_url } } = require(process.env.GITHUB_EVENT_PATH);
 const fs = require('fs');
 
-async function run() {
+module.exports = async () => {
   try {
     // Get authenticated GitHub client (Ocktokit): https://github.com/actions/toolkit/tree/master/packages/github#usage
     const github = new GitHub(process.env.GITHUB_TOKEN);
@@ -38,12 +38,3 @@ async function run() {
     core.setFailed(error.message);
   }
 }
-
-module.exports = run;
-
-module.exports = () => {
-	Object.entries(release).forEach(([key, value]) => {
-		console.log(key, value);
-		core.setOutput(key, value);
-	});
-};
