@@ -13,10 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@master
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm install
 
-      - name: Get release event
+      - name: Upload release artifact
         id: upload_existing_release_asset
         uses: ./.github/actions/output-event
         env:
@@ -26,9 +26,31 @@ jobs:
           asset_name: my-artifact.zip
           asset_content_type: application/zip
 
-      - name: Add NPM auth
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_API_KEY }}" > ~/.npmrc
-      
-      - name: Publish package
-        run: npm publish
+      - name: Build
+        run: |
+          mkdir public
+          cat > public/index.html <<EOL
+          <!doctype html>
+          <html>
+            <head>
+              <title>GitHub Pages deployed!</title>
+            </head>
+            <body>
+              <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
+            </body>
+          </html>
+          EOL
+
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v1
+        with:
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to NPM
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_API_KEY }}" > ~/.npmrc
+          npm publish
           
