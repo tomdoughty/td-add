@@ -1,6 +1,6 @@
 {
   "name": "td-add",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Package to add numbers",
   "main": "index.js",
   "scripts": {
