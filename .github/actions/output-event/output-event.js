@@ -1,10 +1,11 @@
 const core = require('@actions/core');
 const { GitHub } = require('@actions/github');
-const { release: { upload_url } } = require(process.env.GITHUB_EVENT_PATH);
+const event = require(process.env.GITHUB_EVENT_PATH);
 const fs = require('fs');
 
 module.exports = async () => {
   try {
+    console.log(event);
     // Get authenticated GitHub client (Ocktokit): https://github.com/actions/toolkit/tree/master/packages/github#usage
     const github = new GitHub(process.env.GITHUB_TOKEN);
     const assetPath = core.getInput('asset_path', { required: true });
@@ -21,7 +22,7 @@ module.exports = async () => {
     // API Documentation: https://developer.github.com/v3/repos/releases/#upload-a-release-asset
     // Octokit Documentation: https://octokit.github.io/rest.js/#octokit-routes-repos-upload-release-asset
     await github.repos.uploadReleaseAsset({
-      url: upload_url,
+      url: event.release.upload_url,
       headers,
       name: assetName,
       file: fs.readFileSync(assetPath)
