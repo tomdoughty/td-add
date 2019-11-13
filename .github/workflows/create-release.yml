@@ -25,3 +25,10 @@ jobs:
           asset_path: ./dist/my-artifact.zip
           asset_name: my-artifact.zip
           asset_content_type: application/zip
+
+      - name: Publish to NPM
+        uses: pascalgn/npm-publish-action@51fdb4531e99aac1873764ef7271af448dc42ab4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
+          
