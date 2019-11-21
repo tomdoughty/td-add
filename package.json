@@ -1,6 +1,6 @@
 {
   "name": "td-add",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Package to add 2 numbers",
   "main": "index.js",
   "scripts": {
@@ -23,10 +23,8 @@
     "jest": "^24.9.0",
     "jsdoc": "^3.6.3"
   },
-  { 
-    "engines" : {  
-      "node" : ">=12.13.1" 
-    }
+  "engines" : {  
+    "node" : ">=12.13.1" 
   },
   "repository": {
     "type" : "git",
