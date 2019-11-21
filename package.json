@@ -4,7 +4,7 @@
   "description": "Package to add 2 numbers",
   "main": "index.js",
   "scripts": {
-    "jsdoc": "./node_modules/.bin/jsdoc *.js README.md -d dist/docs",
+    "jsdoc": "./node_modules/.bin/jsdoc *.js README.md -d ./docs",
     "lint": "./node_modules/.bin/eslint *.js",
     "test": "jest"
   },
