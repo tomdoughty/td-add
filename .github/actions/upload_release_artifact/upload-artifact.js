@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports = async () => {
   try {
-    const event = fs.readFileSync(process.env.GITHUB_EVENT_PATH);
+    const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
     console.log(event);
 
     // Get authenticated GitHub client (Ocktokit): https://github.com/actions/toolkit/tree/master/packages/github#usage
