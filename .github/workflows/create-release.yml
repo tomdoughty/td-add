@@ -1,4 +1,4 @@
-name: Upload to release
+name: Deploy Release
 
 on:
   release:
@@ -16,36 +16,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Upload release artifact
-        id: upload_existing_release_asset
-        uses: ./.github/actions/output-event
+      - name: Upload Release Artifact
+        uses: ./.github/actions/upload_release_artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           asset_path: ./dist/my-artifact.zip
           asset_name: my-artifact.zip
-          asset_content_type: application/zip
 
-      - name: Build
-        run: |
-          mkdir public
-          cat > public/index.html <<EOL
-          <!doctype html>
-          <html>
-            <head>
-              <title>GitHub Pages deployed!</title>
-            </head>
-            <body>
-              <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
-            </body>
-          </html>
-          EOL
+      - name: Run JSDoc 
+        run: npm run jsdoc
 
-      - name: Deploy
+      - name: Deploy JSDocs to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v1
         with:
           target_branch: gh-pages
-          build_dir: public
+          build_dir: out
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

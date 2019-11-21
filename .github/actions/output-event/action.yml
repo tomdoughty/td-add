@@ -1,8 +1,0 @@
-name: 'Log event'
-inputs:
-  event:
-    description: 'Github event you want to log'
-    required: true
-runs:
-  using: 'node12'
-  main: 'index.js'

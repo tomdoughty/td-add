@@ -1,15 +1,19 @@
 {
   "name": "td-add",
-  "version": "2.0.0",
-  "description": "Package to add numbers",
+  "version": "2.0.2",
+  "description": "Package to add 2 numbers",
   "main": "index.js",
   "scripts": {
+    "jsdoc": "./node_modules/.bin/jsdoc *.js -d dist/docs",
     "lint": "./node_modules/.bin/eslint *.js",
     "test": "jest"
   },
   "author": "Tom Doughty",
   "license": "ISC",
   "devDependencies": {
+    "@actions/core": "^1.0.0",
+    "@actions/exec": "^1.0.0",
+    "@actions/github": "^1.0.0",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "babel-jest": "^24.9.0",
@@ -17,8 +21,6 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "jest": "^24.9.0",
-    "@actions/core": "^1.0.0",
-    "@actions/exec": "^1.0.0",
-    "@actions/github": "^1.0.0"
+    "jsdoc": "^3.6.3"
   }
 }
