@@ -16,6 +16,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
       - name: Upload Release Artifact
         uses: ./.github/actions/upload_release_artifact
         env:

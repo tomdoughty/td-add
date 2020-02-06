@@ -5,32 +5,33 @@
   "main": "index.js",
   "scripts": {
     "jsdoc": "./node_modules/.bin/jsdoc *.js README.md -d ./docs",
-    "lint": "./node_modules/.bin/eslint *.js",
+    "lint": "eslint *.js",
     "test": "jest"
   },
   "author": "Tom Doughty",
   "license": "ISC",
   "devDependencies": {
-    "@actions/core": "^1.0.0",
-    "@actions/exec": "^1.0.0",
+    "@actions/core": "^1.2.2",
+    "@actions/exec": "^1.0.3",
     "@actions/github": "^1.0.0",
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "babel-jest": "^24.9.0",
-    "eslint": "^6.6.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.1",
     "jest": "^24.9.0",
     "jsdoc": "^3.6.3"
   },
-  "engines" : {  
-    "node" : ">=12.13.1" 
+  "engines": {
+    "node": ">=12.13.1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/tomdoughty/td-add.git"
+    "type": "git",
+    "url": "https://github.com/tomdoughty/td-add.git"
   },
   "keywords": [
-    "JavaScript", "GitHub Actions"
+    "JavaScript",
+    "GitHub Actions"
   ]
 }
